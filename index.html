@@ -275,38 +275,38 @@
         }
     </style>
     <!-- Meta Pixel Code -->
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '689091889996583');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=689091889996583&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-<script>
-// Add Lead event on form submission
-document.addEventListener("DOMContentLoaded", function() {
-  var form = document.querySelector("form"); // grabs the first form on your page
-  if(form){
-    form.addEventListener("submit", function() {
-      fbq('track', 'Lead');
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', '689091889996583');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=689091889996583&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <script>
+    // Add Lead event on form submission
+    document.addEventListener("DOMContentLoaded", function() {
+      var form = document.querySelector("form"); // grabs the first form on your page
+      if(form){
+        form.addEventListener("submit", function() {
+          fbq('track', 'Lead');
+        });
+      }
     });
-  }
-});
-</script>
-
-<!-- End Meta Pixel Code -->
+    </script>
+    
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
     <!-- Favicon -->
@@ -426,7 +426,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 </h2>
                 <p class="text-xl text-gray-300 max-w-4xl mx-auto">
                     150+ businesses trust our AI systems to automate 10,000+ business using enterprise-grade AI systems. Our cleints see 3-6x ROI within 90 days with eliminating 95% manual errors.
-
                 </p>
             </div>
             
@@ -444,7 +443,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                     <p class="text-gray-300 mt-6 mb-6">
                         Automate repetitive tasks, reduce errors, and free your team to focus on growth
-
                     </p>
                     <div class="relative h-40 mt-6 rounded-xl overflow-hidden">
                         <canvas id="xrCanvas" class="w-full h-full bg-black/30"></canvas>
@@ -467,7 +465,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                     <p class="text-gray-300 mt-6 mb-6">
                         Generate qualified leads faster with AI-powered scoring, automated follow-ups, and smarter outreach.
-
                     </p>
                     <div class="relative h-40 mt-6 rounded-xl overflow-hidden">
                         <div class="absolute inset-0 flex items-center justify-center">
@@ -798,7 +795,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="absolute bottom-8 left-8 right-8 p-6 bg-black/70 backdrop-filter backdrop-blur-sm rounded-xl border border-gray-700">
                         <h3 class="text-xl font-bold mb-2 gradient-text tech-font">Connect With Us</h3>
                         <p class="text-gray-300 mb-4">We're available across all major platforms and networks.</p>
-                        <div class="flex space-x-4">
+                        <div class="flex space-x-4 mb-4">
                             <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-blue-400 rounded-full flex items-center justify-center transition-all duration-300">
                                 <i class="fab fa-twitter"></i>
                             </a>
@@ -812,9 +809,64 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <i class="fab fa-telegram"></i>
                             </a>
                         </div>
+                        <!-- NEW: explicit legal contact for verification -->
+                        <p class="text-xs text-gray-400">
+                            Legal entity: <strong>UTG Media, LLC</strong> (doing business as UTG.AI and UTG Labs).  
+                            Business contact: <a href="mailto:support@utglabs.com" class="text-blue-400 hover:text-blue-300">support@utglabs.com</a>
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    
+    <!-- SIMPLE LEGAL SECTIONS FOR LINKS -->
+    <section id="about-utg-media" class="py-10 border-t border-gray-800 bg-black/40 px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300">
+            <h3 class="text-lg font-bold mb-2 tech-font gradient-text">About UTG Media, LLC</h3>
+            <p class="mb-1">
+                UTG.AI and UTG Labs are brands operated by <strong>UTG Media, LLC</strong>, a limited liability company.
+            </p>
+            <p class="mb-1">
+                Headquarters: <span class="text-gray-400">123 Business Street, Dallas, TX 75201</span> <!-- TODO: replace with your real address -->
+            </p>
+            <p>
+                Primary contact email: <a href="mailto:support@utglabs.com" class="text-blue-400 hover:text-blue-300">support@utglabs.com</a>
+            </p>
+        </div>
+    </section>
+
+    <section id="privacy-policy" class="py-10 border-t border-gray-800 bg-black/40 px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300">
+            <h3 class="text-lg font-bold mb-2 tech-font gradient-text">Privacy Policy</h3>
+            <p class="mb-2">
+                UTG Media, LLC ("UTG.AI", "UTG Labs", "we", "us") respects your privacy. We collect the information you submit
+                through forms on this site (such as your name, email, company, and project details) to contact you about services
+                you request, provide proposals, and schedule calls.
+            </p>
+            <p class="mb-2">
+                We do not sell your personal information. We may use trusted third-party providers (such as Calendly, analytics,
+                and CRM tools) to process and store data securely on our behalf.
+            </p>
+            <p>
+                For any privacy questions or data requests, email us at
+                <a href="mailto:support@utglabs.com" class="text-blue-400 hover:text-blue-300">support@utglabs.com</a>.
+            </p>
+        </div>
+    </section>
+
+    <section id="terms-of-service" class="py-10 border-t border-gray-800 bg-black/40 px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-300">
+            <h3 class="text-lg font-bold mb-2 tech-font gradient-text">Terms of Service</h3>
+            <p class="mb-2">
+                By using this website, you agree that any automation, consulting, or software services provided by UTG Media, LLC
+                are subject to separate written agreements between you and us. Content on this site is for informational purposes
+                only and does not constitute a guarantee of results.
+            </p>
+            <p>
+                We reserve the right to update or modify these Terms and our services at any time. For questions about these Terms,
+                please contact <a href="mailto:support@utglabs.com" class="text-blue-400 hover:text-blue-300">support@utglabs.com</a>.
+            </p>
         </div>
     </section>
     
@@ -824,7 +876,10 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div>
                     <h4 class="text-xl font-bold gradient-text tech-font mb-4">UTG.AI</h4>
-                    <p class="text-gray-400 mb-6">Pushing the boundaries of digital experience through immersive technology.</p>
+                    <p class="text-gray-400 mb-4">Pushing the boundaries of digital experience through immersive technology.</p>
+                    <p class="text-xs text-gray-500 mb-4">
+                        Operated by <strong>UTG Media, LLC</strong> (doing business as UTG.AI and UTG Labs).
+                    </p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
                             <i class="fab fa-twitter"></i>
@@ -843,20 +898,23 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div>
                     <h5 class="text-lg font-bold text-white mb-4">Services</h5>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Workflow Automation</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">CRM Integration</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Automation Consulting</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Other</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Workflow Automation</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">CRM Integration</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Automation Consulting</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Other</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="text-lg font-bold text-white mb-4">Company</h5>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Careers</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Case Studies</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Contact</a></li>
+                        <li><a href="#about-utg-media" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Careers</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Case Studies</a></li>
+                        <li><a href="#demo-video" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Blog</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">Contact</a></li>
+                        <li class="text-xs text-gray-500 pt-2">
+                            Legal entity: <strong>UTG Media, LLC</strong>
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -871,11 +929,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 UTG.AI . All rights reserved.</p>
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                    © 2025 <strong>UTG Media, LLC</strong>. All rights reserved. UTG.AI and UTG Labs are brands of UTG Media, LLC.
+                </p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition-colors duration-300">Privacy Policy</a>
-                    <a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition-colors duration-300">Terms of Service</a>
-                    <a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition-colors duration-300">Cookies</a>
+                    <a href="#privacy-policy" class="text-gray-500 hover:text-blue-400 text-sm transition-colors duration-300">Privacy Policy</a>
+                    <a href="#terms-of-service" class="text-gray-500 hover:text-blue-400 text-sm transition-colors duration-300">Terms of Service</a>
+                    <a href="#privacy-policy" class="text-gray-500 hover:text-blue-400 text-sm transition-colors duration-300">Cookies</a>
                 </div>
             </div>
         </div>
@@ -1227,11 +1287,11 @@ document.addEventListener("DOMContentLoaded", function() {
             statsCamera.lookAt(0, 1, 0);
             
             // Contact Canvas
-            const contactCanvas = document.getElementById('contactCanvas');
+            const contactCanvasEl = document.getElementById('contactCanvas');
             const contactScene = new THREE.Scene();
             const contactCamera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
             const contactRenderer = new THREE.WebGLRenderer({ 
-                canvas: contactCanvas, 
+                canvas: contactCanvasEl, 
                 alpha: true,
                 antialias: true 
             });
@@ -1287,7 +1347,7 @@ document.addEventListener("DOMContentLoaded", function() {
             contactScene.add(lines);
             
             contactCamera.position.z = 8;
-            contactRenderer.setSize(contactCanvas.width, contactCanvas.height);
+            contactRenderer.setSize(contactCanvasEl.width, contactCanvasEl.height);
             
             // Footer Sphere
             const footerSphereCanvas = document.getElementById('footerSphereCanvas');
@@ -1392,63 +1452,31 @@ document.addEventListener("DOMContentLoaded", function() {
             window.addEventListener('resize', function() {
                 // Adjust canvas sizes and camera aspects
                 const canvases = [
-                    { canvas: torusCanvas, renderer: torusRenderer },
-                    { canvas: cubeCanvas, renderer: cubeRenderer },
-                    { canvas: pyramidCanvas, renderer: pyramidRenderer },
-                    { canvas: xrCanvas, renderer: xrRenderer },
-                    { canvas: project1Canvas, renderer: project1Renderer },
-                    { canvas: project2Canvas, renderer: project2Renderer },
-                    { canvas: project3Canvas, renderer: project3Renderer },
-                    { canvas: techVizCanvas, renderer: techVizRenderer },
-                    { canvas: statsCanvas, renderer: statsRenderer },
-                    { canvas: contactCanvas, renderer: contactRenderer },
-                    { canvas: footerSphereCanvas, renderer: footerSphereRenderer }
+                    { canvas: torusCanvas, renderer: torusRenderer, camera: torusCamera },
+                    { canvas: cubeCanvas, renderer: cubeRenderer, camera: cubeCamera },
+                    { canvas: pyramidCanvas, renderer: pyramidRenderer, camera: pyramidCamera },
+                    { canvas: xrCanvas, renderer: xrRenderer, camera: xrCamera },
+                    { canvas: project1Canvas, renderer: project1Renderer, camera: project1Camera },
+                    { canvas: project2Canvas, renderer: project2Renderer, camera: project2Camera },
+                    { canvas: project3Canvas, renderer: project3Renderer, camera: project3Camera },
+                    { canvas: techVizCanvas, renderer: techVizRenderer, camera: techVizCamera },
+                    { canvas: statsCanvas, renderer: statsRenderer, camera: statsCamera },
+                    { canvas: contactCanvasEl, renderer: contactRenderer, camera: contactCamera },
+                    { canvas: footerSphereCanvas, renderer: footerSphereRenderer, camera: footerSphereCamera }
                 ];
                 
                 canvases.forEach(item => {
-                    // For the hero section floating elements
-                    if ([torusCanvas, cubeCanvas, pyramidCanvas].includes(item.canvas)) {
-                        const parent = item.canvas.parentElement;
-                        const width = parent.offsetWidth;
-                        const height = parent.offsetHeight;
-                        
+                    if (!item.canvas || !item.canvas.parentElement) return;
+                    const parent = item.canvas.parentElement;
+                    const width = parent.offsetWidth;
+                    const height = parent.offsetHeight || parent.offsetWidth; // fallback square
+                    
+                    if (width > 0 && height > 0) {
                         item.canvas.width = width;
                         item.canvas.height = height;
                         item.renderer.setSize(width, height);
-                        
-                        // Update camera for new aspect ratio
-                        const camera = item === torusCanvas ? torusCamera : 
-                                      item === cubeCanvas ? cubeCamera : pyramidCamera;
-                        
-                        camera.aspect = width / height;
-                        camera.updateProjectionMatrix();
-                    }
-                    
-                    // For other canvas elements with defined parents
-                    else if (item.canvas.parentElement) {
-                        const parent = item.canvas.parentElement;
-                        const width = parent.offsetWidth;
-                        const height = parent.offsetHeight;
-                        
-                        if (width > 0 && height > 0) {
-                            item.canvas.width = width;
-                            item.canvas.height = height;
-                            item.renderer.setSize(width, height);
-                            
-                            // Update camera for new aspect ratio
-                            let camera;
-                            if (item === xrCanvas) camera = xrCamera;
-                            else if (item === project1Canvas) camera = project1Camera;
-                            else if (item === project2Canvas) camera = project2Camera;
-                            else if (item === project3Canvas) camera = project3Camera;
-                            else if (item === techVizCanvas) camera = techVizCamera;
-                            else if (item === statsCanvas) camera = statsCamera;
-                            else if (item === contactCanvas) camera = contactCamera;
-                            else if (item === footerSphereCanvas) camera = footerSphereCamera;
-                            
-                            camera.aspect = width / height;
-                            camera.updateProjectionMatrix();
-                        }
+                        item.camera.aspect = width / height;
+                        item.camera.updateProjectionMatrix();
                     }
                 });
             });
@@ -1457,3 +1485,5 @@ document.addEventListener("DOMContentLoaded", function() {
             window.dispatchEvent(new Event('resize'));
         });
     </script>
+</body>
+</html>
