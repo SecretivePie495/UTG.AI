@@ -119,9 +119,6 @@
       .hero-cta-group {
         justify-content: center;
       }
-      .lead-form-card {
-        margin-inline: auto;
-      }
     }
 
     .badge {
@@ -303,7 +300,6 @@
 
     .btn-primary:disabled {
       cursor: default;
-      opacity: 0.7;
     }
 
     .btn-secondary {
@@ -344,7 +340,6 @@
       font-size: 0.85rem;
       color: #6b7280;
       transform: perspective(1000px) translateZ(15px);
-      margin-bottom: 1rem;
     }
 
     .hero-metric-row {
@@ -352,7 +347,7 @@
       flex-wrap: wrap;
       gap: 2.5rem;
       font-size: 0.85rem;
-      margin-top: 0.5rem;
+      margin-top: 1.2rem;
     }
 
     .metric {
@@ -378,101 +373,6 @@
     .metric span.label {
       color: #6b7280;
       font-size: 0.8rem;
-    }
-
-    /* LEAD FORM CARD */
-    .lead-form-card {
-      margin-top: 1.75rem;
-      padding: 1.5rem 1.75rem;
-      border-radius: 1.5rem;
-      background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.1), transparent 60%),
-        linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
-      border: 1px solid rgba(37, 99, 235, 0.5);
-      box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.9),
-        0 0 60px rgba(56, 189, 248, 0.25);
-      transform: perspective(1200px) translateZ(25px);
-      backdrop-filter: blur(24px);
-    }
-
-    .lead-form-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
-    .lead-form-subtitle {
-      font-size: 0.8rem;
-      color: #9ca3af;
-      margin-bottom: 1.1rem;
-    }
-
-    .lead-form-grid {
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    @media (min-width: 700px) {
-      .lead-form-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      text-align: left;
-    }
-
-    .form-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #9ca3af;
-      font-weight: 600;
-    }
-
-    .form-input {
-      border-radius: 999px;
-      border: 1px solid rgba(51, 65, 85, 0.9);
-      background: rgba(15, 23, 42, 0.95);
-      padding: 0.7rem 0.9rem;
-      font-size: 0.85rem;
-      color: #e5e7eb;
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .form-input::placeholder {
-      color: #6b7280;
-    }
-
-    .form-input:focus {
-      border-color: rgba(56, 189, 248, 0.9);
-      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.9), 0 0 30px rgba(56, 189, 248, 0.35);
-      background: rgba(15, 23, 42, 1);
-    }
-
-    .lead-form-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .lead-form-note {
-      font-size: 0.75rem;
-      color: #6b7280;
-    }
-
-    .btn-primary.btn-small {
-      padding: 0.8rem 1.6rem;
-      font-size: 0.9rem;
     }
 
     /* Right side hero card */
@@ -746,12 +646,156 @@
       color: #a5b4fc;
       text-shadow: 0 0 10px rgba(165, 180, 252, 0.5);
     }
+
+    /* BOTTOM SECTION / STRATEGY CALL FORM */
+    .bottom-section {
+      min-height: auto;
+      padding: 5rem 1.5rem 4rem;
+    }
+
+    .bottom-section::before {
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.1), transparent 70%);
+    }
+
+    .bottom-grid {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .bottom-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    .bottom-heading {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .bottom-subheading {
+      font-size: 1.05rem;
+      color: #9ca3af;
+      max-width: 32rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .bottom-bullets {
+      list-style: none;
+      font-size: 0.95rem;
+      color: #d1d5db;
+    }
+
+    .bottom-bullets li {
+      margin-bottom: 0.5rem;
+    }
+
+    .bottom-bullets li span {
+      color: #22c55e;
+      margin-right: 0.4rem;
+    }
+
+    .strategy-form-card {
+      padding: 2rem 2.25rem;
+      border-radius: 1.75rem;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.15), transparent 60%),
+        linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+      border: 1px solid rgba(37, 99, 235, 0.6);
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.9),
+        0 0 80px rgba(56, 189, 248, 0.35);
+      backdrop-filter: blur(26px);
+    }
+
+    .strategy-form-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .strategy-form-subtitle {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    @media (min-width: 700px) {
+      .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      text-align: left;
+    }
+
+    .form-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      font-weight: 600;
+    }
+
+    .form-input {
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .form-input::placeholder {
+      color: #6b7280;
+    }
+
+    .form-input:focus {
+      border-color: rgba(56, 189, 248, 0.9);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.9), 0 0 30px rgba(56, 189, 248, 0.35);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .strategy-form-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+      margin-top: 1.4rem;
+    }
+
+    .btn-primary.btn-small {
+      padding: 0.85rem 1.8rem;
+      font-size: 0.95rem;
+    }
+
+    .strategy-note {
+      font-size: 0.75rem;
+      color: #6b7280;
+      max-width: 16rem;
+    }
   </style>
 </head>
 <body>
   <canvas id="bg-canvas"></canvas>
   <div class="gradient-overlay"></div>
   <div class="page-wrapper">
+    <!-- HERO -->
     <section class="hero">
       <div class="container">
         <div class="hero-grid">
@@ -768,8 +812,21 @@
               Udo &amp; Laith plug directly into your lead stream, build 3D nurture pipelines, and handle all the follow up conversations — so you wake up to pre-qualified appointments, not unread inquiries.
             </p>
             <div class="hero-cta-group">
-              <button class="btn-primary">Book a Strategy Call →</button>
-              <button class="btn-secondary">See a Live Pipeline Demo</button>
+              <!-- CTA buttons scroll to bottom section -->
+              <button
+                type="button"
+                class="btn-primary cta-scroll"
+                data-target="#strategy-call"
+              >
+                Book a Strategy Call →
+              </button>
+              <button
+                type="button"
+                class="btn-secondary cta-scroll"
+                data-target="#strategy-call"
+              >
+                See a Live Pipeline Demo
+              </button>
             </div>
             <p class="hero-trust">
               Trusted by lean teams who don’t have time to “figure out automation” — they just want more qualified calls.
@@ -784,71 +841,7 @@
                 <span class="label">We handle the tech, logic &amp; copy</span>
               </div>
             </div>
-
-            <!-- LEAD CAPTURE FORM → sends to webhook -->
-            <form id="lead-form" class="lead-form-card">
-              <div class="lead-form-title">See if 3D Pipelines fit your business</div>
-              <div class="lead-form-subtitle">Drop in a few details and we’ll map out a custom nurture flow for you.</div>
-
-              <div class="lead-form-grid">
-                <div class="form-group">
-                  <label class="form-label" for="name">Name</label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    class="form-input"
-                    placeholder="Udo Onyekwere"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="email">Email</label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    class="form-input"
-                    placeholder="you@business.com"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="business">Business Name</label>
-                  <input
-                    id="business"
-                    name="business"
-                    type="text"
-                    class="form-input"
-                    placeholder="UTG Media"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="daily">Daily Leads</label>
-                  <input
-                    id="daily"
-                    name="daily"
-                    type="number"
-                    min="0"
-                    class="form-input"
-                    placeholder="e.g. 25"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div class="lead-form-footer">
-                <button type="submit" class="btn-primary btn-small" id="lead-form-submit">
-                  Get My Pipeline Map →
-                </button>
-                <p class="lead-form-note">
-                  No spam. Just one clear breakdown of how we’d plug in.
-                </p>
-              </div>
-            </form>
           </div>
-
           <div>
             <div class="hero-panel">
               <div class="panel-header">
@@ -899,30 +892,130 @@
         </div>
       </div>
     </section>
+
+    <!-- BOTTOM: STRATEGY CALL / OPT-IN FORM -->
+    <section id="strategy-call" class="bottom-section">
+      <div class="container">
+        <div class="bottom-grid">
+          <div>
+            <h2 class="bottom-heading">Book Your 3D Pipeline Strategy Call</h2>
+            <p class="bottom-subheading">
+              Share a few details and we’ll map out how Udo &amp; Laith can plug into your existing lead flow, build a 12-week nurture, and hand you only qualified conversations.
+            </p>
+            <ul class="bottom-bullets">
+              <li><span>✓</span> See exactly how many leads you’re leaving on the table.</li>
+              <li><span>✓</span> Get a custom 3D nurture map for your niche.</li>
+              <li><span>✓</span> No tech headaches — we handle setup for you.</li>
+            </ul>
+          </div>
+
+          <div>
+            <form id="strategy-form" class="strategy-form-card">
+              <div class="strategy-form-title">Quick intake to book your call</div>
+              <div class="strategy-form-subtitle">
+                This goes straight to our pipeline — we’ll follow up with suggested times.
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="name">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    class="form-input"
+                    placeholder="Udo Onyekwere"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="form-input"
+                    placeholder="you@business.com"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="business_name">Business Name</label>
+                  <input
+                    id="business_name"
+                    name="business_name"
+                    type="text"
+                    class="form-input"
+                    placeholder="UTG Media"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="daily_leads">Daily Leads</label>
+                  <input
+                    id="daily_leads"
+                    name="daily_leads"
+                    type="number"
+                    min="0"
+                    class="form-input"
+                    placeholder="e.g. 25"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="strategy-form-footer">
+                <button
+                  type="submit"
+                  class="btn-primary btn-small"
+                  id="strategy-submit"
+                >
+                  Book My Strategy Call →
+                </button>
+                <p class="strategy-note">
+                  No spam. Just one clear breakdown & booking link.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
   <script>
-    // 👇 Replace this with your actual webhook URL (Make, Zapier, custom API, etc.)
-    const WEBHOOK_URL = "https://your-webhook-url.com";
+    // 🔗 Smooth scroll for hero CTAs
+    document.querySelectorAll('.cta-scroll').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetSelector = btn.getAttribute('data-target');
+        const targetEl = document.querySelector(targetSelector);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
 
-    const leadForm = document.getElementById("lead-form");
-    const submitButton = document.getElementById("lead-form-submit");
+    // 🔁 Webhook for "Book Strategy Call" form
+    const WEBHOOK_URL = "https://your-webhook-url.com"; // <-- replace this
 
-    leadForm.addEventListener("submit", async (event) => {
+    const strategyForm = document.getElementById("strategy-form");
+    const strategySubmit = document.getElementById("strategy-submit");
+
+    strategyForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      const formData = new FormData(leadForm);
+      const formData = new FormData(strategyForm);
       const payload = {
         name: formData.get("name"),
         email: formData.get("email"),
-        business: formData.get("business"),
-        daily: formData.get("daily"),
-        source: "UdoXLaith Hero Form"
+        business_name: formData.get("business_name"),
+        daily_leads: formData.get("daily_leads"),
+        source: "Hero Strategy Call Form"
       };
 
       try {
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
+        strategySubmit.disabled = true;
+        strategySubmit.textContent = "Sending...";
 
         await fetch(WEBHOOK_URL, {
           method: "POST",
@@ -932,15 +1025,15 @@
           body: JSON.stringify(payload)
         });
 
-        leadForm.reset();
-        submitButton.textContent = "Got it ✓";
+        strategyForm.reset();
+        strategySubmit.textContent = "Booked ✓";
       } catch (error) {
         console.error("Webhook error:", error);
-        submitButton.textContent = "Try Again";
+        strategySubmit.textContent = "Try Again";
       } finally {
         setTimeout(() => {
-          submitButton.disabled = false;
-          submitButton.textContent = "Get My Pipeline Map →";
+          strategySubmit.disabled = false;
+          strategySubmit.textContent = "Book My Strategy Call →";
         }, 2500);
       }
     });
