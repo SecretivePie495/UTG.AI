@@ -119,6 +119,9 @@
       .hero-cta-group {
         justify-content: center;
       }
+      .lead-form-card {
+        margin-inline: auto;
+      }
     }
 
     .badge {
@@ -284,11 +287,6 @@
       transition: width 0.6s ease, height 0.6s ease;
     }
 
-    .btn-primary:hover::after {
-      width: 300px;
-      height: 300px;
-    }
-
     .btn-primary:hover:not(:disabled) {
       transform: perspective(1000px) translateZ(60px) translateY(-5px) scale(1.05);
       filter: brightness(1.15);
@@ -305,6 +303,7 @@
 
     .btn-primary:disabled {
       cursor: default;
+      opacity: 0.7;
     }
 
     .btn-secondary {
@@ -345,6 +344,7 @@
       font-size: 0.85rem;
       color: #6b7280;
       transform: perspective(1000px) translateZ(15px);
+      margin-bottom: 1rem;
     }
 
     .hero-metric-row {
@@ -352,7 +352,7 @@
       flex-wrap: wrap;
       gap: 2.5rem;
       font-size: 0.85rem;
-      margin-top: 1.2rem;
+      margin-top: 0.5rem;
     }
 
     .metric {
@@ -378,6 +378,101 @@
     .metric span.label {
       color: #6b7280;
       font-size: 0.8rem;
+    }
+
+    /* LEAD FORM CARD */
+    .lead-form-card {
+      margin-top: 1.75rem;
+      padding: 1.5rem 1.75rem;
+      border-radius: 1.5rem;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.1), transparent 60%),
+        linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+      border: 1px solid rgba(37, 99, 235, 0.5);
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.9),
+        0 0 60px rgba(56, 189, 248, 0.25);
+      transform: perspective(1200px) translateZ(25px);
+      backdrop-filter: blur(24px);
+    }
+
+    .lead-form-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .lead-form-subtitle {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 1.1rem;
+    }
+
+    .lead-form-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 700px) {
+      .lead-form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      text-align: left;
+    }
+
+    .form-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      font-weight: 600;
+    }
+
+    .form-input {
+      border-radius: 999px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      padding: 0.7rem 0.9rem;
+      font-size: 0.85rem;
+      color: #e5e7eb;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .form-input::placeholder {
+      color: #6b7280;
+    }
+
+    .form-input:focus {
+      border-color: rgba(56, 189, 248, 0.9);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.9), 0 0 30px rgba(56, 189, 248, 0.35);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .lead-form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .lead-form-note {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .btn-primary.btn-small {
+      padding: 0.8rem 1.6rem;
+      font-size: 0.9rem;
     }
 
     /* Right side hero card */
@@ -651,86 +746,6 @@
       color: #a5b4fc;
       text-shadow: 0 0 10px rgba(165, 180, 252, 0.5);
     }
-
-    /* SECTIONS */
-    .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 0.75rem;
-      transform: perspective(800px) translateZ(20px);
-      font-weight: 600;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: #e5e7eb;
-      transform: perspective(800px) translateZ(25px);
-      text-shadow: 
-        0 5px 25px rgba(0, 0, 0, 0.7),
-        0 0 40px rgba(14, 165, 233, 0.3);
-      line-height: 1.2;
-    }
-
-    .section-subtitle {
-      font-size: 1.05rem;
-      color: #9ca3af;
-      max-width: 36rem;
-      margin-bottom: 2.5rem;
-      transform: perspective(800px) translateZ(18px);
-      line-height: 1.6;
-    }
-
-    .grid {
-      display: grid;
-      gap: 1.5rem;
-      transform-style: preserve-3d;
-    }
-
-    @media (min-width: 800px) {
-      .grid-cols-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-      .grid-cols-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .grid-cols-4 {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-    }
-
-    .card {
-      border-radius: 1.5rem;
-      border: 2px solid rgba(31, 41, 55, 0.8);
-      background: 
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.1), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.08), transparent 60%),
-        linear-gradient(145deg, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.98));
-      padding: 1.5rem;
-      box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.9),
-        0 0 80px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
-      position: relative;
-      overflow: hidden;
-      transform: perspective(1500px) translateZ(0);
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      transform-style: preserve-3d;
-      cursor: pointer;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -30%;
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.3), transparent 50%);
-      opacity: 0;
-      transition: all 0.5s ease;
-      animation: cardGlow 8s ease infinite;
-    }
   </style>
 </head>
 <body>
@@ -769,7 +784,71 @@
                 <span class="label">We handle the tech, logic &amp; copy</span>
               </div>
             </div>
+
+            <!-- LEAD CAPTURE FORM → sends to webhook -->
+            <form id="lead-form" class="lead-form-card">
+              <div class="lead-form-title">See if 3D Pipelines fit your business</div>
+              <div class="lead-form-subtitle">Drop in a few details and we’ll map out a custom nurture flow for you.</div>
+
+              <div class="lead-form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="name">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    class="form-input"
+                    placeholder="Udo Onyekwere"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="form-input"
+                    placeholder="you@business.com"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="business">Business Name</label>
+                  <input
+                    id="business"
+                    name="business"
+                    type="text"
+                    class="form-input"
+                    placeholder="UTG Media"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="daily">Daily Leads</label>
+                  <input
+                    id="daily"
+                    name="daily"
+                    type="number"
+                    min="0"
+                    class="form-input"
+                    placeholder="e.g. 25"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="lead-form-footer">
+                <button type="submit" class="btn-primary btn-small" id="lead-form-submit">
+                  Get My Pipeline Map →
+                </button>
+                <p class="lead-form-note">
+                  No spam. Just one clear breakdown of how we’d plug in.
+                </p>
+              </div>
+            </form>
           </div>
+
           <div>
             <div class="hero-panel">
               <div class="panel-header">
@@ -821,5 +900,50 @@
       </div>
     </section>
   </div>
+
+  <script>
+    // 👇 Replace this with your actual webhook URL (Make, Zapier, custom API, etc.)
+    const WEBHOOK_URL = "https://your-webhook-url.com";
+
+    const leadForm = document.getElementById("lead-form");
+    const submitButton = document.getElementById("lead-form-submit");
+
+    leadForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(leadForm);
+      const payload = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        business: formData.get("business"),
+        daily: formData.get("daily"),
+        source: "UdoXLaith Hero Form"
+      };
+
+      try {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+        await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        leadForm.reset();
+        submitButton.textContent = "Got it ✓";
+      } catch (error) {
+        console.error("Webhook error:", error);
+        submitButton.textContent = "Try Again";
+      } finally {
+        setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = "Get My Pipeline Map →";
+        }, 2500);
+      }
+    });
+  </script>
 </body>
 </html>
