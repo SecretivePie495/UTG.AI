@@ -1271,27 +1271,31 @@
     </div>
     <!-- Start of bodyEnd -->
     <!-- End of bodyEnd -->
-
-    <script>
+<script>
 async function searchSite(query) {
   const res = await fetch('/images/utglabs_json.json');
   const data = await res.json();
 
-  const pages = data.pages;
+  // Pull the pages array
+  const pages = data.pages || [];
+
   query = query.toLowerCase();
 
   const results = pages.filter(page => {
-    return (
-      page.title.toLowerCase().includes(query) ||
-      page.description.toLowerCase().includes(query) ||
-      page.p.join(" ").toLowerCase().includes(query)
-    );
+    const textBlob = [
+      page.title || "",
+      page.description || "",
+      (page.p || []).join(" "),
+      (page.h1 || []).join(" "),
+      (page.h2 || []).join(" ")
+    ].join(" ").toLowerCase();
+
+    return textBlob.includes(query);
   });
 
   console.log("Search results:", results);
   return results;
 }
 </script>
-    
   </body>
 </html>
