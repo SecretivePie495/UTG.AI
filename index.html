@@ -2,6 +2,12 @@
 <!-- ✨ Built with Framer • https://www.framer.com/ -->
 <html lang="en">
   <head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="search-index" content="/images/utglabs_json.json">
+
+</head>
     <meta charset="utf-8" />
     <script>
       try{if(localStorage.get(&#34;__framer_force_showing_editorbar_since&#34;)){const n=document.createElement(&#34;link&#34;);n.rel = &#34;modulepreload&#34;;n.href=&#34;https://framer.com/edit/init.mjs&#34;;document.head.appendChild(n)}}catch(e){}
@@ -1265,5 +1271,27 @@
     </div>
     <!-- Start of bodyEnd -->
     <!-- End of bodyEnd -->
+
+    <script>
+async function searchSite(query) {
+  const res = await fetch('/images/utglabs_json.json');
+  const data = await res.json();
+
+  const pages = data.pages;
+  query = query.toLowerCase();
+
+  const results = pages.filter(page => {
+    return (
+      page.title.toLowerCase().includes(query) ||
+      page.description.toLowerCase().includes(query) ||
+      page.p.join(" ").toLowerCase().includes(query)
+    );
+  });
+
+  console.log("Search results:", results);
+  return results;
+}
+</script>
+    
   </body>
 </html>
