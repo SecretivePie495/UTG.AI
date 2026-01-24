@@ -52,50 +52,72 @@
   <link rel="shortcut icon" href="/images/UTG-Favicon.jpg" />
   <link rel="apple-touch-icon" href="/images/UTG-Favicon.jpg" />
 
-  <!-- Page smoothing styles - logo size here (**height: 50px**) !important -->
- <style>
-    * {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+<!-- Webflow CSS -->
+<link href="https://cdn.prod.website-files.com/66d5553aa640d66c668df6f1/css/starvy.webflow.af65316a5.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<!-- Webflow scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: { families: ["Inter:regular,500,italic,500italic"] }
+  });
+</script>
+<script>
+  !function(o,c){
+    var n=c.documentElement,t=" w-mod-";
+    n.className+=t+"js";
+    ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className+=t+"touch")
+  }(window,document);
+</script>
+<!-- ⭐ YOUR OVERRIDE FAVICON (last = wins) -->
+<link rel="icon" type="image/jpg" href="/images/UTG-Favicon.jpg" />
+<link rel="shortcut icon" href="/images/UTG-Favicon.jpg" />
+<link rel="apple-touch-icon" href="/images/UTG-Favicon.jpg" />
+<!-- Page smoothing styles - logo size here (**height: 50px**) !important -->
+<style>
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .sticky-navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    height: 170px !important;
+  }
+  .sticky-navbar .brand.w-nav-brand {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  .sticky-navbar .brand.w-nav-brand img.image-full {
+    width: auto !important;
+    height: 50px !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+  body {
+    padding-top: 0px !important;
+  }
+  @media (max-width: 767px) {
     .sticky-navbar {
-      position: fixed !important;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-      height: 170px !important;
-    }
-    .sticky-navbar .brand.w-nav-brand {
-      display: flex !important;
-      align-items: center !important;
-      height: 100% !important;
-      padding: 0 !important;
-      overflow: visible !important;
+      height: 60px !important;
     }
     .sticky-navbar .brand.w-nav-brand img.image-full {
-      width: auto !important;
-      height: 50px !important;
-      max-width: none !important;
-      max-height: none !important;
-      object-fit: contain !important;
+      height: 35px !important;
     }
     body {
-      padding-top: 170px !important;
+      padding-top: 0px !important;
     }
-    @media (max-width: 767px) {
-      .sticky-navbar {
-        height: 120px !important;
-      }
-      .sticky-navbar .brand.w-nav-brand img.image-full {
-        height: 100px !important;
-      }
-      body {
-        padding-top: 120px !important;
-      }
-    }
+  }
 </style>
-    
+</head>
     
   </style>
 </head>
