@@ -226,41 +226,107 @@
 </svg></div></div><div class="text-s text-gradient-purple-light">How it Works</div></div><h2 class="text-gradient-purple-light text-align-center">Your Live<br>Client Revival Portal</h2></div>
   
   
-  <!-- Airtable Embed -->
-<div class="airtable-wrapper">
-  <iframe
-    class="airtable-embed"
-    src="https://airtable.com/embed/apphY3bSasyyG6ZhG/shrYuvcpRjoOVOvrV?disableCsvDownload=true"
-    frameborder="0"
-  ></iframe>
+ <!-- Video Embed (replaces Airtable) -->
+<div class="portal-video-wrapper">
+  <div class="portal-video-shell">
+
+    <!-- Video With Thumbnail -->
+    <video
+      class="portal-video"
+      controls
+      playsinline
+      preload="metadata"
+      poster="https://storage.googleapis.com/media.utg-media.com/ClientVideoThumbnail.jpg"
+    >
+      <source src="https://storage.googleapis.com/facelessbroll_website/ClientDemo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Pretty Play Overlay -->
+    <div class="portal-play-overlay" aria-hidden="true">
+      <div class="portal-play-btn">▶</div>
+    </div>
+
+  </div>
 </div>
 
 <style>
-  .airtable-wrapper{
-    width:100%;
-    max-width: 2400px; /* WIDE */
+  .portal-video-wrapper{
+    width: 100%;
+    max-width: 2400px;
     margin: 40px auto;
   }
 
-  .airtable-wrapper iframe{
-    width:100%;
-    height:650px; /* SHORTER */
-    border:1px solid #ccc;
-    background:transparent;
-    border-radius:12px;
+  .portal-video-shell{
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(0,0,0,0.15);
   }
 
-  /* Mobile/tablet fallback */
+  .portal-video{
+    width: 100%;
+    height: 650px;
+    display: block;
+    border-radius: 12px;
+  }
+
+  .portal-play-overlay{
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.15),
+      rgba(0,0,0,0.35)
+    );
+    opacity: 1;
+    transition: opacity .25s ease;
+  }
+
+  .portal-play-btn{
+    width: 84px;
+    height: 84px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+    color: #fff;
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.22);
+    backdrop-filter: blur(10px);
+  }
+
   @media (max-width: 991px){
-    .airtable-wrapper{
-      max-width:100%;
-    }
-    .airtable-wrapper iframe{
-      height:500px;
-    }
+    .portal-video{ height: 500px; }
+    .portal-play-btn{ width: 70px; height: 70px; font-size: 24px; }
   }
 </style>
-<!-- End Airtable Embed -->
+
+<script>
+  (function(){
+    const shell = document.querySelector('.portal-video-shell');
+    if(!shell) return;
+    const video = shell.querySelector('video.portal-video');
+    const overlay = shell.querySelector('.portal-play-overlay');
+    if(!video || !overlay) return;
+
+    const hide = () => overlay.style.opacity = '0';
+    const show = () => overlay.style.opacity = '';
+
+    video.addEventListener('play', hide);
+    video.addEventListener('pause', () => {
+      if(video.currentTime < 0.2) show();
+    });
+    video.addEventListener('ended', show);
+  })();
+</script>
+<!-- End Video Embed -->
+
 
 
   
