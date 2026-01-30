@@ -155,7 +155,327 @@
 </defs>
 </svg></div></div><div class="text-s text-gradient-purple-lighter">Your AI Scheduling Assistant</div></div><h1 class="text-gradient-purple-light text-align-center">Turn Old <span class="text-gradient-purple-dark">Leads</span> Into Booked Appointments</h1></div><div class="section-heading-paragraph hero" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"><p class="text-xl">Re-engage cold leads, revive missed opportunities, and book more clients with our SMS follow-up system.</p></div></div><div class="section-content top-32"><div data-w-id="d5533fd3-66c2-b074-207b-a721fcf8dc96" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="hero-button-wrap"><a href="https://airtable.com/apphY3bSasyyG6ZhG/pagk0ul8zEkafzV7x/form" class="button primary size-l w-inline-block"><div>Get Started</div><div class="svg-icon _24 w-embed"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M20.7806 12.5306L14.0306 19.2806C13.8899 19.4213 13.699 19.5003 13.5 19.5003C13.301 19.5003 13.1101 19.4213 12.9694 19.2806C12.8286 19.1398 12.7496 18.949 12.7496 18.7499C12.7496 18.5509 12.8286 18.36 12.9694 18.2193L18.4397 12.7499H3.75C3.55109 12.7499 3.36032 12.6709 3.21967 12.5303C3.07902 12.3896 3 12.1988 3 11.9999C3 11.801 3.07902 11.6103 3.21967 11.4696C3.36032 11.3289 3.55109 11.2499 3.75 11.2499H18.4397L12.9694 5.78055C12.8286 5.63982 12.7496 5.44895 12.7496 5.24993C12.7496 5.05091 12.8286 4.86003 12.9694 4.7193C13.1101 4.57857 13.301 4.49951 13.5 4.49951C13.699 4.49951 13.8899 4.57857 14.0306 4.7193L20.7806 11.4693C20.8504 11.539 20.9057 11.6217 20.9434 11.7127C20.9812 11.8038 21.0006 11.9014 21.0006 11.9999C21.0006 12.0985 20.9812 12.1961 20.9434 12.2871C20.9057 12.3782 20.8504 12.4609 20.7806 12.5306Z" fill="currentColor"></path>
-</svg></div><div class="button-gradient"></div></a></div></div><div data-w-id="ad4e63a6-837e-17a7-70b4-0b124a7356f7" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="section-content top-72"><div class="hero-image-wrap"><div class="hero-image">
+</svg></div><div class="button-gradient"></div></a>
+<!--Dead Lead Calculator-->
+  
+  <!-- ✅ Add this SECOND button right next to your existing "Get Started" button -->
+<a href="#" id="dlcOpen" class="button primary size-l w-inline-block" style="margin-left:12px;">
+  <div>Dead Lead Calculator</div>
+  <div class="svg-icon _24 w-embed">
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 7h10M7 12h6M7 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+  </div>
+  <div class="button-gradient"></div>
+</a>
+
+<!-- ✅ Modal + Calculator (paste once per page, ideally near end of body OR right after hero) -->
+<div id="dlcModal" class="dlc-modal" aria-hidden="true">
+  <div class="dlc-backdrop" data-close="1"></div>
+
+  <div class="dlc-dialog" role="dialog" aria-modal="true" aria-labelledby="dlcTitle">
+    <button class="dlc-close" type="button" data-close="1" aria-label="Close">✕</button>
+
+    <div class="dlc-head">
+      <div class="dlc-badge">Free Tool</div>
+      <h2 id="dlcTitle" class="dlc-title">Dead Lead Calculator</h2>
+      <p class="dlc-sub">Put your numbers in. See how much revenue is sitting in old leads.</p>
+    </div>
+
+    <div class="dlc-grid">
+      <!-- Inputs -->
+      <div class="dlc-card">
+        <label class="dlc-label">Number of old leads <span>(6–24 months)</span></label>
+        <input id="dlcLeads" class="dlc-input" type="number" min="0" step="1" placeholder="e.g., 1200">
+
+        <label class="dlc-label">Average job/service value <span>($)</span></label>
+        <input id="dlcValue" class="dlc-input" type="number" min="0" step="0.01" placeholder="e.g., $2500">
+
+        <label class="dlc-label">How often do you follow up with old leads?</label>
+        <select id="dlcFollow" class="dlc-input">
+          <option value="0">Never</option>
+          <option value="0.10">Once</option>
+          <option value="0.20">2–3 times</option>
+          <option value="0.35">Weekly-ish</option>
+          <option value="0.50" selected>Consistent (weekly + reminders)</option>
+          <option value="0.70">Automated multi-week system</option>
+        </select>
+        
+        <div class="dlc-mini" style="margin-top:10px; opacity:.85;">
+          <div><b>Follow-up lift estimate:</b> <span id="dlcLift">+50%</span></div>
+          <div style="opacity:.75;">(This adjusts your close rate to reflect follow-up consistency.)</div>
+        </div>
+
+        <div class="dlc-row">
+          <label class="dlc-label" style="margin:0;">Current close rate <span id="dlcRateLabel">10%</span></label>
+        </div>
+        <input id="dlcRate" class="dlc-range" type="range" min="0" max="100" value="10">
+
+        <div class="dlc-actions">
+          <button id="dlcCalc" class="dlc-btn primary" type="button">Calculate</button>
+          <button id="dlcReset" class="dlc-btn ghost" type="button">Reset</button>
+        </div>
+
+        <div id="dlcErr" class="dlc-err">Enter leads + average value.</div>
+      </div>
+
+      <!-- Results -->
+      <div class="dlc-card dlc-results">
+        <div class="dlc-kicker">Estimated revenue sitting in dead leads</div>
+        <div id="dlcRevenue" class="dlc-big">$0</div>
+
+        <div class="dlc-mini">
+          <div><b id="dlcDeals">0</b> expected deals at <b id="dlcRateOut">10%</b></div>
+          <div><b id="dlcPer100">$0</b> per 100 old leads</div>
+        </div>
+
+        <div class="dlc-ohshit">
+          <b>Reality check:</b> This is money you’ve already paid to acquire — it’s just not being followed up consistently.
+        </div>
+
+        <!-- ✅ Swap this link to your audit/booking link -->
+        <a href="https://airtable.com/apphY3bSasyyG6ZhG/pagk0ul8zEkafzV7x/form"
+           class="dlc-btn primary"
+           style="display:flex; justify-content:center; margin-top:14px; text-decoration:none;">
+          Get a Dead Lead Audit →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* --- Modal shell (kept isolated so it won’t mess with Webflow styles) --- */
+  .dlc-modal{ position:fixed; inset:0; z-index:9999; display:none; }
+  .dlc-modal.is-open{ display:block; }
+  .dlc-backdrop{
+    position:absolute; inset:0;
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(6px);
+  }
+  .dlc-dialog{
+    position:relative;
+    width:min(980px, calc(100% - 28px));
+    margin: 6vh auto;
+    background: rgba(20, 10, 35, 1.90);
+    border: 1px solid rgba(197,155,253,0.28); /* soft purple border */
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 0 40px rgba(197,155,253,0.25); /* purple glow */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 18px;
+    color:#fff;
+}
+
+  .dlc-close{
+    position:absolute; top:12px; right:12px;
+    width:36px; height:36px;
+    border-radius: 999px;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.06);
+    color:#fff;
+    cursor:pointer;
+  }
+  .dlc-head{ padding: 6px 6px 14px; }
+  .dlc-badge{
+    display:inline-block;
+    font-size:12px;
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(197,155,253,.12);
+    margin-bottom:10px;
+  }
+  .dlc-title{ margin:0; font-size:28px; letter-spacing:-.02em; }
+  .dlc-sub{ margin:8px 0 0; opacity:.78; }
+
+  .dlc-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 6px;
+  }
+  @media (max-width: 880px){
+    .dlc-dialog{ margin: 3vh auto; }
+    .dlc-grid{ grid-template-columns: 1fr; }
+  }
+  .dlc-card{
+    border:1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.04);
+    border-radius: 16px;
+    padding: 14px;
+  }
+  .dlc-label{
+    display:block;
+    font-size:13px;
+    margin: 10px 0 6px;
+    opacity:.9;
+  }
+  .dlc-label span{ opacity:.65; font-weight:400; }
+  .dlc-input{
+    width:100%;
+    padding:12px 12px;
+    border-radius: 14px;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(0,0,0,.22);
+    color:#fff;
+    outline:none;
+  }
+  .dlc-range{ width:100%; margin-top:8px; }
+
+  .dlc-actions{ display:flex; gap:10px; margin-top: 14px; flex-wrap:wrap; }
+  .dlc-btn{
+    border-radius: 14px;
+    padding: 12px 14px;
+    border: 1px solid rgba(255,255,255,.14);
+    cursor:pointer;
+    font-weight:700;
+  }
+  .dlc-btn.primary{
+    background: linear-gradient(180deg, #ffffff, #c59bfd);
+    color:#1a1023;
+    border: none;
+  }
+  .dlc-btn.ghost{
+    background: rgba(255,255,255,.06);
+    color:#fff;
+  }
+  .dlc-err{
+    display:none;
+    margin-top:10px;
+    color:#ff8aa1;
+    font-size:13px;
+  }
+  .dlc-results .dlc-kicker{ opacity:.75; font-size:13px; }
+  .dlc-big{
+    font-size:42px;
+    font-weight:900;
+    letter-spacing:-.02em;
+    margin: 8px 0 10px;
+  }
+  .dlc-mini{ opacity:.8; line-height:1.6; }
+  .dlc-ohshit{
+    margin-top:12px;
+    padding:12px;
+    border-radius: 14px;
+    border:1px solid rgba(251,191,36,.30);
+    background: rgba(251,191,36,.10);
+    line-height:1.45;
+    font-size:13px;
+  }
+
+  /* Make sure Webflow "secondary" button has a reasonable default if you don’t have one */
+  .button.secondary{
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14);
+    color:#fff;
+  }
+</style>
+
+<script>
+  (function(){
+    const openBtn = document.getElementById("dlcOpen");
+    const modal = document.getElementById("dlcModal");
+
+    const leadsEl = document.getElementById("dlcLeads");
+    const valueEl = document.getElementById("dlcValue");
+    const rateEl  = document.getElementById("dlcRate");
+    const rateLabel = document.getElementById("dlcRateLabel");
+
+    const calcBtn = document.getElementById("dlcCalc");
+    const resetBtn = document.getElementById("dlcReset");
+    const errEl = document.getElementById("dlcErr");
+
+    const revenueEl = document.getElementById("dlcRevenue");
+    const dealsEl = document.getElementById("dlcDeals");
+    const rateOutEl = document.getElementById("dlcRateOut");
+    const per100El = document.getElementById("dlcPer100");
+
+    function money(n){
+      const v = Number.isFinite(n) ? n : 0;
+      return new Intl.NumberFormat(undefined, {style:"currency", currency:"USD", maximumFractionDigits:0}).format(v);
+    }
+    function num(n){
+      const v = Number.isFinite(n) ? n : 0;
+      return new Intl.NumberFormat(undefined, {maximumFractionDigits: (v < 10 ? 1 : 0)}).format(v);
+    }
+
+    function openModal(){
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden","false");
+      setTimeout(()=> leadsEl?.focus(), 30);
+    }
+    function closeModal(){
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden","true");
+    }
+
+    function syncRate(){
+      rateLabel.textContent = rateEl.value + "%";
+      rateOutEl.textContent = rateEl.value + "%";
+    }
+
+    function calculate(){
+      const leads = parseFloat(leadsEl.value);
+      const avg = parseFloat(valueEl.value);
+      const ratePct = parseFloat(rateEl.value);
+
+      if(!Number.isFinite(leads) || !Number.isFinite(avg) || leads <= 0 || avg <= 0){
+        errEl.style.display = "block";
+        revenueEl.textContent = "$0";
+        dealsEl.textContent = "0";
+        per100El.textContent = "$0";
+        return;
+      }
+      errEl.style.display = "none";
+
+      const rate = Math.min(1, Math.max(0, ratePct/100));
+      const deals = leads * rate;
+      const revenue = deals * avg;
+      const per100 = (100 * rate) * avg;
+
+      revenueEl.textContent = money(revenue);
+      dealsEl.textContent = num(deals);
+      per100El.textContent = money(per100);
+    }
+
+    function reset(){
+      leadsEl.value = "";
+      valueEl.value = "";
+      rateEl.value = 10;
+      syncRate();
+      errEl.style.display = "none";
+      revenueEl.textContent = "$0";
+      dealsEl.textContent = "0";
+      per100El.textContent = "$0";
+    }
+
+    // Wire up
+    openBtn && openBtn.addEventListener("click", function(e){
+      e.preventDefault();
+      openModal();
+    });
+
+    modal.addEventListener("click", function(e){
+      if(e.target && e.target.dataset && e.target.dataset.close){
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+    });
+
+    rateEl.addEventListener("input", syncRate);
+    calcBtn.addEventListener("click", calculate);
+    resetBtn.addEventListener("click", reset);
+
+    syncRate();
+  })();
+</script>
+<!--Dead Lead Calculator End-->
+
+</div></div><div data-w-id="ad4e63a6-837e-17a7-70b4-0b124a7356f7" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="section-content top-72"><div class="hero-image-wrap"><div class="hero-image">
 <div class="hero-image">
   <div class="feature-video-wrap w-embed" style="width:100%; margin:0;">
     <div style="position:relative; width:100%; padding-top:56.25%;"> 
