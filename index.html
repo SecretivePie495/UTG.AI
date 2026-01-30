@@ -233,6 +233,80 @@
           <b>Reality check:</b> This is money you’ve already paid to acquire — it’s just not being followed up consistently.
         </div>
 
+        <!-- 🔒 Lead Capture (shows AFTER they calculate) -->
+<div id="dlcGate" class="dlc-gate" style="display:none;">
+  <div class="dlc-gate-title">Unlock your full breakdown</div>
+  <div class="dlc-gate-sub">
+    Get the 30-day recovery projection + a recommended follow-up plan sent to you.
+  </div>
+
+  <form id="dlcLeadForm" class="dlc-form" autocomplete="on">
+    <div class="dlc-form-row">
+      <input id="dlcName" class="dlc-input" type="text" placeholder="Name (optional)">
+    </div>
+
+    <div class="dlc-form-row">
+      <input id="dlcEmail" class="dlc-input" type="email" placeholder="Email (required)" required>
+    </div>
+
+    <div class="dlc-form-row">
+      <input id="dlcPhone" class="dlc-input" type="tel" placeholder="Phone (optional)">
+    </div>
+
+    <label class="dlc-consent">
+      <input id="dlcSmsConsent" type="checkbox">
+      <span>
+        If I provide my phone, I agree to receive texts about my results (msg & data rates may apply).
+      </span>
+    </label>
+
+    <!-- Honeypot (bot blocker) -->
+    <input id="dlcCompany" type="text" name="company" tabindex="-1" autocomplete="off" style="display:none;">
+
+    <button id="dlcSubmit" class="dlc-btn primary" type="submit" style="width:100%; justify-content:center;">
+      Send my breakdown →
+    </button>
+
+    <div id="dlcFormErr" class="dlc-err" style="display:none; margin-top:10px;"></div>
+    <div id="dlcFormOk" style="display:none; margin-top:10px; font-size:13px; opacity:.85;">
+      ✅ Sent. Your breakdown is unlocked below.
+    </div>
+  </form>
+
+  <!-- 🔓 Unlocked content (hidden until form submits) -->
+  <div id="dlcUnlocked" class="dlc-unlocked" style="display:none;">
+    <div class="dlc-unlocked-title">Your 30-day recovery projection</div>
+
+    <div class="dlc-unlocked-grid">
+      <div class="dlc-unlocked-card">
+        <div class="dlc-kicker">Potential in 30 days</div>
+        <div id="dlc30Value" class="dlc-big" style="font-size:34px; margin:6px 0 0;">$0</div>
+        <div style="opacity:.8; font-size:13px; margin-top:6px;">
+          Based on your inputs + follow-up consistency.
+        </div>
+      </div>
+
+      <div class="dlc-unlocked-card">
+        <div class="dlc-kicker">Recommended follow-up plan</div>
+        <ul class="dlc-plan">
+          <li>Day 0: Short question message</li>
+          <li>Day 2: Value + 1 simple CTA</li>
+          <li>Day 5: “Still thinking about it?”</li>
+          <li>Day 10: Social proof boost</li>
+          <li>Day 17: Final check-in</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dlc-ohshit" style="margin-top:12px;">
+      Want me to run this for you weekly and show every conversation + booking in your dashboard?
+    </div>
+  </div>
+</div>
+
+  
+        
+
         <!-- ✅ Swap this link to your audit/booking link -->
         <a href="https://airtable.com/apphY3bSasyyG6ZhG/pagk0ul8zEkafzV7x/form"
            class="dlc-btn primary"
@@ -391,6 +465,20 @@
     const rateOutEl = document.getElementById("dlcRateOut");
     const per100El = document.getElementById("dlcPer100");
 
+        // Lead capture elements
+    const gateEl = document.getElementById("dlcGate");
+    const formEl = document.getElementById("dlcLeadForm");
+    const nameEl = document.getElementById("dlcName");
+    const emailEl = document.getElementById("dlcEmail");
+    const phoneEl = document.getElementById("dlcPhone");
+    const consentEl = document.getElementById("dlcSmsConsent");
+    const companyTrapEl = document.getElementById("dlcCompany");
+    const formErrEl = document.getElementById("dlcFormErr");
+    const formOkEl = document.getElementById("dlcFormOk");
+    const unlockedEl = document.getElementById("dlcUnlocked");
+    const v30El = document.getElementById("dlc30Value");
+
+
     function money(n){
       const v = Number.isFinite(n) ? n : 0;
       return new Intl.NumberFormat(undefined, {style:"currency", currency:"USD", maximumFractionDigits:0}).format(v);
@@ -398,6 +486,15 @@
     function num(n){
       const v = Number.isFinite(n) ? n : 0;
       return new Intl.NumberFormat(undefined, {maximumFractionDigits: (v < 10 ? 1 : 0)}).format(v);
+    }
+
+        // Helper functions for validation
+    function onlyDigits(s){ 
+      return (s || "").replace(/\D/g, ""); 
+    }
+    
+    function isValidEmail(e){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((e||"").trim());
     }
 
     function openModal(){
@@ -434,6 +531,22 @@
       const revenue = deals * avg;
       const per100 = (100 * rate) * avg;
 
+      // Show the gate after a successful calculation
+if (gateEl) gateEl.style.display = "block";
+
+// 30-day projection (simple monthly approximation)
+const monthlyApprox = revenue / 12;
+if (v30El) v30El.textContent = money(monthlyApprox);
+
+// Reset messages when recalculating
+if (formErrEl){
+  formErrEl.style.display = "none";
+  formErrEl.textContent = "";
+}
+if (formOkEl) formOkEl.style.display = "none";
+if (unlockedEl) unlockedEl.style.display = "none";
+
+      
       revenueEl.textContent = money(revenue);
       dealsEl.textContent = num(deals);
       per100El.textContent = money(per100);
@@ -470,6 +583,76 @@
     calcBtn.addEventListener("click", calculate);
     resetBtn.addEventListener("click", reset);
 
+    // OPTIONAL: add a Make/Zapier webhook URL here later
+    const DLC_WEBHOOK_URL = "https://hook.us1.make.com/s21z4pjd33o3ldqid3aqakay2dr0fwik"; // e.g. "https://hook.us1.make.com/xxxxx"
+    
+    formEl && formEl.addEventListener("submit", async function(e){
+      e.preventDefault();
+    
+      if (formErrEl){ formErrEl.style.display = "none"; formErrEl.textContent = ""; }
+      if (formOkEl) formOkEl.style.display = "none";
+    
+      // Honeypot (bots)
+      if (companyTrapEl && companyTrapEl.value.trim() !== "") return;
+    
+      const name = (nameEl?.value || "").trim();
+      const email = (emailEl?.value || "").trim();
+      const phoneRaw = (phoneEl?.value || "").trim();
+      const phone = onlyDigits(phoneRaw);
+    
+      if (!isValidEmail(email)){
+        if (formErrEl){
+          formErrEl.textContent = "Please enter a valid email.";
+          formErrEl.style.display = "block";
+        }
+        return;
+      }
+    
+      // If phone is provided, require consent checkbox
+      if (phone.length > 0 && !(consentEl && consentEl.checked)){
+        if (formErrEl){
+          formErrEl.textContent = "Please check the consent box if you provide a phone number.";
+          formErrEl.style.display = "block";
+        }
+        return;
+      }
+    
+      const payload = {
+        name,
+        email,
+        phone: phone.length ? phone : "",
+        leads: leadsEl ? Number(leadsEl.value) : null,
+        avg_value: valueEl ? Number(valueEl.value) : null,
+        base_close_rate: rateEl ? Number(rateEl.value) : null,
+        estimated_revenue: revenueEl ? revenueEl.textContent : "",
+        per_100: per100El ? per100El.textContent : "",
+        created_at: new Date().toISOString()
+      };
+    
+      try{
+        // Send to webhook if provided
+        if (DLC_WEBHOOK_URL){
+          await fetch(DLC_WEBHOOK_URL, {
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify(payload)
+          });
+        }
+    
+        // Unlock
+        if (formOkEl) formOkEl.style.display = "block";
+        if (unlockedEl) unlockedEl.style.display = "block";
+    
+        try{
+          localStorage.setItem("dlc_lead", JSON.stringify({email, phone, name, t:Date.now()}));
+        }catch(_e){}
+      }catch(err){
+        if (formErrEl){
+          formErrEl.textContent = "Couldn’t submit right now. Please try again.";
+          formErrEl.style.display = "block";
+        }
+      }
+    }); 
     syncRate();
   })();
 </script>
@@ -809,6 +992,53 @@
   .w-webflow-badge {
     display: none !important;
   }
+/* Lead-capture section styling */
+.dlc-gate{
+  margin-top:14px;
+  padding:12px;
+  border-radius: 16px;
+  border: 1px solid rgba(197,155,253,0.22);
+  background: rgba(255,255,255,0.04);
+}
+
+.dlc-gate-title{ font-weight:900; letter-spacing:-.01em; }
+.dlc-gate-sub{ margin-top:6px; opacity:.8; font-size:13px; line-height:1.4; }
+
+.dlc-form{ margin-top:10px; display:flex; flex-direction:column; gap:10px; }
+.dlc-form-row{ display:block; }
+
+.dlc-consent{
+  display:flex; gap:10px; align-items:flex-start;
+  font-size:12px; line-height:1.35; opacity:.85;
+}
+.dlc-consent input{ margin-top:2px; }
+
+.dlc-unlocked{
+  margin-top:12px;
+  padding-top:12px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+.dlc-unlocked-title{ font-weight:900; margin-bottom:10px; }
+
+.dlc-unlocked-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+@media (max-width: 880px){
+  .dlc-unlocked-grid{ grid-template-columns: 1fr; }
+}
+
+.dlc-unlocked-card{
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.dlc-plan{ margin:8px 0 0; padding-left:18px; opacity:.9; font-size:13px; line-height:1.55; }
+.dlc-plan li{ margin:4px 0; }
+
 </style>
 </body>
   <browserflow-container>
